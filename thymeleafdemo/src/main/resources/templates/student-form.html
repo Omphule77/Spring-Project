@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Student Form</title>
+</head>
+<body>
+   <form th:action="@{/processForm}" th:object="${student}" method="post">
+      <input placeholder="First Name" type="text" th:field="*{firstName}" >
+      <br><br>
+      <input placeholder="Last Name" type="text" th:field="*{lastName}" >
+      <br><br>
+       <select th:field="*{country}">
+           <option th:each="theCountry : ${contries}"  th:value="${theCountry}" th:text="${theCountry}" />
+       </select>
+       <br><br>
+          Favourate subject:
+      <!--   <input type="radio" th:field="*{favsub}" value="GO" >GO</input>
+          <input type="radio" th:field="*{favsub}" value="python" >python</input>
+          <input type="radio" th:field="*{favsub}" value="java" >java</input>  --> 
+          
+          <input type="radio" th:field="*{favsub}" th:each="lang: ${languages}"
+                                                   th:value="${lang}" 
+                                                   th:text="${lang}"/> 
+       <br><br>
+       Favourite Operating System:
+    <!--   <input type="checkbox" th:field="*{favops}" th:value="Linux">Linux</input>
+       <input type="checkbox" th:field="*{favops}" th:value="window">window</input>
+       <input type="checkbox" th:field="*{favops}" th:value="macos">macos</input>
+        --> 
+        
+        <input type="checkbox" th:field="*{favops}" th:each="favop :${operating}" th:text="${favop}" th:value="${favop}"></input>
+        
+       <br><br>
+      <input type="submit" >
+   </form>
+</body>
+</html>

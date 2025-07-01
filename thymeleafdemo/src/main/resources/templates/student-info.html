@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Student Information</title>
+</head>
+<body>
+  <h1>Hey, <span th:text="${student.firstName}" /></h1>
+  <h2>From, <span th:text="${student.country}" /></h2>
+  <h2>Favourite Subject, <span th:text="${student.favsub}" /></h2>
+  <h2>Favourite Operating System,</h2>
+     <ul>
+  <li th:each="favo: ${student.favops}" th:text="${favo}" />
+   </ul>
+
+  </h2>
+</body>
+</html>

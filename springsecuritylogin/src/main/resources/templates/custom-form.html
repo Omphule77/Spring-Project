@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Custom Login FOrm</title>
+<style type="">
+  .failed{
+   color:red
+  }
+</style>
+</head>
+<body>
+<center>
+<h2>Login Form</h2>
+<br>
+<div th:if="${param.error}">
+   <i class="failed">Sorry! you entered wrong userid or password...</i>
+</div>
+<form th:action="@{/submitHere}" method="post">
+   User Id:<input type="text" name="username">
+   <br><br>
+   Password:<input type="password" name="password">
+   <br><br>
+   <input type="submit" value="login">
+   </form>
+</center>
+</body>
+
+</html>
